@@ -26,7 +26,7 @@ public class Main {
         }
 
         System.out.println("\n=== RESULTADOS ACTUALES ===");
-        Player player1 = scoreboard.winSuccessor(-1)[0]; // Mostrar alguien con al menos 1 victoria
+        Player player1 = scoreboard.winSuccessor(-1)[0];
         Player[] allPlayers = scoreboard.winRange(0, 100);
 
         for (int i = 0; i < allPlayers.length; i++) {
