@@ -7,7 +7,6 @@ public class Main {
 
         System.out.println("=== CONECTA 4 ===");
 
-        // Registro de jugadores
         System.out.print("Ingrese nombre del Jugador A: ");
         String playerA = scanner.nextLine();
         System.out.print("Ingrese nombre del Jugador B: ");
@@ -16,11 +15,9 @@ public class Main {
         scoreboard.registerPlayer(playerA);
         scoreboard.registerPlayer(playerB);
 
-        // Jugar partida
         Game game = new Game(playerA, playerB);
         String winner = game.play();
 
-        // Actualizar Scoreboard
         if (game.getStatus().equals("DRAW")) {
             scoreboard.addGameResult(playerA, playerB, true);
         } else {
@@ -28,7 +25,6 @@ public class Main {
             scoreboard.addGameResult(winner, loser, false);
         }
 
-        // Mostrar resultados
         System.out.println("\n=== RESULTADOS ACTUALES ===");
         Player player1 = scoreboard.winSuccessor(-1)[0]; // Mostrar alguien con al menos 1 victoria
         Player[] allPlayers = scoreboard.winRange(0, 100);
