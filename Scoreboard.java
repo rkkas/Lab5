@@ -48,7 +48,6 @@ public class Scoreboard {
             pw.addDraw();
             pl.addDraw();
         } else {
-            // Eliminar al ganador del antiguo nodo
             int oldWins = pw.getWins();
             ArrayList<String> list = winTree.get(oldWins);
             for (int i = 0; i < list.size(); i++) {
@@ -61,7 +60,6 @@ public class Scoreboard {
                 winTree.remove(oldWins);
             }
 
-            // Actualizar estadísticas
             pw.addWin();
             pl.addLoss();
 
@@ -76,7 +74,6 @@ public class Scoreboard {
     public Player[] winRange(int lo, int hi) {
         ArrayList<Player> result = new ArrayList<Player>();
 
-        // Convertimos las claves a lista para recorrerlas con for clásico
         ArrayList<Integer> keys = new ArrayList<Integer>();
         Iterator<Integer> it = winTree.keySet().iterator();
         while (it.hasNext()) {
