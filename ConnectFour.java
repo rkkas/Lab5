@@ -1,5 +1,5 @@
 public class ConnectFour {
-    private char[][] grid; // [6 filas][7 columnas]
+    private char[][] grid;
     private char currentSymbol;
 
     public ConnectFour() {
@@ -9,12 +9,12 @@ public class ConnectFour {
                 grid[i][j] = ' ';
             }
         }
-        currentSymbol = 'X'; // El jugador A comienza
+        currentSymbol = 'X';
     }
 
     public boolean makeMove(int col) {
         if (col < 0 || col >= 7) {
-            return false; // columna inválida
+            return false;
         }
 
         for (int row = 5; row >= 0; row--) {
@@ -54,13 +54,11 @@ public class ConnectFour {
     }
 
     public String isGameOver() {
-        // Buscar ganador en todas las direcciones
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 7; col++) {
                 char c = grid[row][col];
                 if (c == ' ') continue;
 
-                // Horizontal →
                 if (col <= 3) {
                     if (grid[row][col + 1] == c &&
                         grid[row][col + 2] == c &&
@@ -69,7 +67,6 @@ public class ConnectFour {
                     }
                 }
 
-                // Vertical ↓
                 if (row <= 2) {
                     if (grid[row + 1][col] == c &&
                         grid[row + 2][col] == c &&
@@ -78,7 +75,6 @@ public class ConnectFour {
                     }
                 }
 
-                // Diagonal ↘
                 if (row <= 2 && col <= 3) {
                     if (grid[row + 1][col + 1] == c &&
                         grid[row + 2][col + 2] == c &&
@@ -87,7 +83,6 @@ public class ConnectFour {
                     }
                 }
 
-                // Diagonal ↙
                 if (row <= 2 && col >= 3) {
                     if (grid[row + 1][col - 1] == c &&
                         grid[row + 2][col - 2] == c &&
@@ -98,7 +93,6 @@ public class ConnectFour {
             }
         }
 
-        // Empate: si la primera fila está llena
         boolean full = true;
         for (int col = 0; col < 7; col++) {
             if (grid[0][col] == ' ') {
