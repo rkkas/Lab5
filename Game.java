@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Game {
-    private String status; // IN_PROGRESS, VICTORY, DRAW
+    private String status;
     private String winnerPlayerName;
     private String playerNameA;
     private String playerNameB;
